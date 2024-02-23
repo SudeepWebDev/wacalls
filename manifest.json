@@ -1,7 +1,7 @@
 {
     "name": "WhatsApp Ghost Call",
     "short_name": "WhatsApp Ghost Call",
-    "start_url": "/wacalls/",
+    "start_url": "/wacalls/index.html",
     "display": "standalone",
     "orientation": "portrait",
     "icons": [
