@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "/files/waicon.webp",
+            "src": "/wacalls/files/waicon.webp",
             "sizes": "300x300",
             "type": "image/png"
         }
