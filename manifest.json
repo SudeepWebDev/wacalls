@@ -1,0 +1,14 @@
+{
+    "name": "WhatsApp Ghost Call",
+    "short_name": "WhatsApp Ghost Call",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/files/waicon.webp",
+            "sizes": "300x300",
+            "type": "image/png"
+        }
+    ]
+}

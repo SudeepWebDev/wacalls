@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp call</title>
+    <link rel="stylesheet" href="/ghostcall/css/main.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="/ghostcall/js/head.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body ondblclick="delDIO()" onchange="getLocation();GFG_Fun()">
+    <!-- Calling Forms -->
+    <div class="welcome-mess" style="display:none">
+        <p id="gfg" style="color: white;"></p>
+    </div>
+    <div class="welcome-mess" style="display:none">
+        <p id="demo"></p>
+    </div>
+    <div class="container register form-container-container">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <h3>Welcome</h3>
+                <p>Fill & Make Ghost Calls!</p>
+                <div>
+                    <img src="https://www.pngmart.com/files/17/Vector-Ghost-Transparent-Background.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-9 register-right">
+                <div class="tab-content " id="myTabContent">
+                    <div class="fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <!-- <h3 class="register-heading">Start</h3> -->
+                        <form id="contact-us-form" name="google-sheet">
+                            <div class="row register-form">
+                                <div style="width: 100%;">
+                                    <div class="form-group">
+                                        <input type="text" id="name" name="name" class="form-control"
+                                            placeholder="Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" minlength="10" maxlength="10" class="form-control"
+                                            placeholder="Phone *" id="phno" name="phno" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Profile Pic</label>
+                                        <input type="file" class="form-control" accept="image/*" id="img"
+                                            onchange="loadFile()" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ringtone</label>
+                                        <input type="file" class="form-control" accept="audio/*" id="re-ringtone"
+                                            onchange="loadaudio()" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Audio</label>
+                                        <input type="file" class="form-control" accept="audio/*" id="re-audio"
+                                            onchange="loadaudio()" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Video</label>
+                                        <input type="file" id="rec-video" class="form-control" accept="video/*"
+                                            capture="environment" onchange="loadVideo()" />
+                                    </div>
+                                    <div class="label-input-container" style="display:none">
+                                        <label for="time" class="form-items" style="display:none">ID1</label>
+                                        <input id="time" class="user-time" name="time" type="text" required
+                                            style="display:none">
+                                    </div>
+                                    <div class="label-input-container" style="display:none">
+                                        <label for="ip" class="form-items" style="display:none">ID1</label>
+                                        <input id="ip" class="user-ip" name="ip" type="text" required
+                                            style="display:none">
+                                    </div>
+                                    <div class="label-input-container" style="display:none">
+                                        <label for="loc" class="form-items" style="display:none">ID2</label>
+                                        <input id="loc" class="user-loc" name="loc" type="text" required
+                                            style="display:none">
+                                    </div>
+                                    <div class="label-input-container" style="display:none">
+                                        <label for="ip" class="form-items" style="display:none">ID1</label>
+                                        <input id="charging" style="display: none;" name="charging" type="text">
+                                    </div>
+                                    <div class="label-input-container" style="display:none">
+                                        <label for="ip" class="form-items" style="display:none">ID1</label>
+                                        <input id="level" style="display: none;" name="level" type="text">
+                                    </div>
+                                    <div class="label-input-container" style="display:none">
+                                        <label for="ip" class="form-items" style="display:none">ID1</label>
+                                        <input id="dischargingTime" style="display: none;" name="dischargingTime"
+                                            type="text">
+                                    </div>
+                                    <div class="label-input-container" style="display:none">
+                                        <label for="dev-type" class="form-items" style="display:none">ID1</label>
+                                        <input id="dev-type" style="display: none;" name="dev-type" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="not-type" name="not-type"
+                                            placeholder="Time for Scheduling *" value="" />
+                                    </div>
+                                    <button type="button" id="timer-btn" value="timer" onclick="hello()">Schedule
+                                        Call</button>
+
+                                    <input type="button" class="btnRegister " onclick="changeusername(event);"
+                                        value="Call" id="submit-btn" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start of Incoming calling -->
+    <div id="Call-Maker-Container">
+        <span id="current-time" style="display: none;"></span>
+
+        <div>
+            <span>
+                <img id="img-person" src="/ghostcall/files/wa_default_img.jpg" onclick="toggleFullScreen(body);realcall()">
+                <span id="callername"></span>
+                <span id="callerno"></span>
+                <span id="wavoicecall">WhatsApp voice call</span>
+            </span>
+            <div id="img-cont-container">
+
+
+                <span id="img-container">
+                    <img id="img-hangup-icon" src="/ghostcall/files/phone-hang up.svg" width="90px" onclick="hangcall()">
+
+                    <span id="arrow-container" style="position: relative; bottom: 110px;">
+                        <img class="img-arrow-icon" src="/ghostcall/files/icons8-chevron-up-30.png"
+                            style="display: block;">
+                        <img class="img-arrow-icon" src="/ghostcall/files/icons8-chevron-up-30.png"
+                            style="display: block">
+                        <img class="img-arrow-icon" src="/ghostcall/files/icons8-chevron-up-30.png">
+
+                    </span>
+
+
+                    <img id="img-takeup-icon" src="/ghostcall/files/phone-5981.svg" width="90px"  onclick="calltaken();startTimer();"
+                        ondragleave="calltaken()">
+                    <!-- <img id="img-mess-icon" src="message.png"> -->
+
+                </span>
+                <p id="swipeuptext"
+                    style="color:#8b8b8b; margin: auto; display: flex; align-items: center; justify-content: center;">
+                    Swipe up to accept
+                </p>
+            </div>
+            <div style="border:2px solid red; display: none;">
+                <audio autoplay loop>
+                    <source src="/ghostcall/files/xiaomi_original.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+        </div>
+    </div>
+    <div id="error"></div>
+    <img src="/ghostcall/files/loc-img.jpg" id="err-img" style="display:none; margin:auto; height:50px;"
+        onclick="getLocation()">
+
+    <!-- Start of Recieved calling -->
+    <div id="call-taken-container">
+        <div id="end-2-container">
+
+            <div id="end-2-text"
+                style="color:#8b8b8b; margin: auto;  display: flex; align-items: center; justify-content: center;">
+                <img src="/ghostcall/files/icons8-chevron-up-30.png" id="down-arrow" class="disabled-icon"
+                    onclick="dioCheckNet()">
+                <img src="/ghostcall/files/icons8-lock.svg" style="width: 15px;margin: 6px;"><span
+                    onclick="disend2mess()">End-to-end
+                    encrypted</span>
+                <img src="/ghostcall/files/add to contact.png" id="add-con-img" class="disabled-icon"
+                    onclick="dioCheckNet()">
+            </div>
+            <div id="end-2-end-mess"><span>WhatsApp secures your conversations with end-to-end
+                    encryption. This means your messages, calls and status updates stay between you and the people you
+                    choose. Not even WhatsApp can read or listen to them.</span>
+                <span class="end-2-end-mess-down-btn" style="float: left;" onclick="gowalearnmore()">LEARN
+                    MORE</span><span style="float: right;" class="end-2-end-mess-down-btn"
+                    onclick="remEnd2endmess()">OK</span>
+            </div>
+        </div>
+        <span id="username-ctc"
+            style="font-size: x-large; font-weight: 900; color: white; display: flex; align-items: center; justify-content: center;">Hello</span>
+        <span id="stopwatch">00:00</span>
+        <div class="disabled-icon-overlay">Please check your internet connectivity<img src="/ghostcall/files/delete.png"
+                onclick="delDIO()"></div>
+        <img src="/ghostcall/files/wa_default_img.jpg" id="img-taken-person" width="400px" height="400px"
+            onclick="toggleFullScreen(body)">
+        <div id="bottom-call-tool-container">
+            <img src="/ghostcall/files/icons8-chevron-right-60.png" alt="" id="down-icon-arrow" class="disabled-icon"
+                onclick="dioCheckNet()">
+            <img src="/ghostcall/files/icons8-speaker-96.png" alt="" width="50px" height="50px" class="disabled-icon"
+                onclick="dioCheckNet()">
+            <img src="/ghostcall/files/icons8-no-video-50.png" alt="" width="50px" class="disabled-icon"
+                onclick="showvideo();askPermission()">
+            <img src="/ghostcall/files/icons8-mute-unmute-96.png" alt="" width="50px" height="50px"
+                class="disabled-icon" onclick="dioCheckNet()">
+            <img src="/ghostcall/files/phone-hang up.svg" alt="" width="50px" class="disabled-icon"
+                onclick="hangcall()">
+        </div>
+    </div>
+    <div id="video-container">
+        <video id="video" src="" autoplay loop>
+        </video>
+        <img src="/ghostcall/files/phone-hang up.svg" alt="" width="50px" class="disabled-icon" onclick="hangcall()"
+            id="videohang" style="display:none">
+    </div>
+    <script src="/ghostcall/js/main.js"></script>
+
+</body>
+
+</html>
