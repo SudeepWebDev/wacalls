@@ -220,7 +220,7 @@ div#Call-Maker-Container {
 #img-container {
     display: flex;
     margin-left: auto;
-    margin-top: 280px;
+/*     margin-top: 280px; */
     padding: 0px;
     align-items: center;
     justify-content: space-evenly;
@@ -362,11 +362,9 @@ audio {
     display: flex;
     justify-items: center;
     justify-content: space-around;
-    /* position: fixed;
-    bottom: 0px;
-    margin: auto;
-    padding: auto; */
-    position: relative;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 
 }
 
@@ -438,4 +436,10 @@ audio {
     transform: rotate(360deg);
 
     transition: 2s;
+}
+span#img-container {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    right: 50%;
 }
